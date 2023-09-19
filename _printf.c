@@ -24,12 +24,12 @@ int _printf(const char *format, ...)
 				switch (format[i + 1])
 				{
 					case 'c':
-							_putchar(va_arg(args, int);
+							_putchar(va_arg(args, int));
 							leng++;
 							i += 2;
 							break;
 					case 's':
-							leng +=  print_str(va_arg(args, char *);
+							leng +=  print_str(va_arg(args, char *));
 							i += 2;
 							break;
 					case '%':
