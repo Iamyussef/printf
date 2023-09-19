@@ -37,6 +37,13 @@ int _printf(const char *format, ...)
 							leng++;
 							i += 2;
 							break;
+					case 'd':
+					case 'i':
+
+							leng += print_int(va_arg(args, int));
+							i += 2;
+							break;
+
 					default:
 							_putchar('%');
 							_putchar(format[i + 1]);
