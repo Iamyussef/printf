@@ -33,14 +33,36 @@ int _printf(const char *format, ...)
 					printstring(str);
 					break;
 				case '%':
-					_putchar(format[i]);
-					size1 += 1;
+					if (format[i] == '%')
+					{
+						i--;
+						int length;
+						for (length = 0; format[i] == '%')
+						{
+							length++;
+							sizepercent = length;
+						}
+						printpercent = length;
+						i = i - 2;
+					}
+					else
+					{
+						_putchar (format[i]);
+							size1++;
+					}
 					break;
-				default
+				default:
+					i--;
 					_putchar(format[i]);
-				size += 1;
-				break;
+					size++;
+					break;
 			}
+		}
+		else
+		{
+			_putchar(format[i]);
+			size1++;
+			break;
 		}
 	}
 	sum += size1 + size2;
