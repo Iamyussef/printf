@@ -1,5 +1,6 @@
 #ifndef MAIN_H
 #define MAIN_H
+<<<<<<< HEAD
 #include <unistd.h>
 
 /**
@@ -34,19 +35,42 @@ int _strlen(const char *str)
  * @str: pointer to string
  * Return: void
  */
-void printstring(char *str)
+int printstr(char *str)
 {
-	int i = 0;
-	char *ptr;
-	int size = 0;
-	
-	if (; i < size; i++)
+	char *str;
+	str = "(null)";
+	int i;
+	int b;
+	if (s == NULL)
 	{
-		_putchar(str[i]);
+		for (b = 0; str[b] != '\0'; i++)
+		{
+			_putchar(str[b]);
+		}
 	}
+	else
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			_putchar(s[i]);
+		}
+	}
+	return (i);
 }
 
 int _print(const char *format, ...);
 
 #endif /* MAIN_H */
 
+=======
+
+int print_int(int n);
+int _printf(const char *format, ...);
+int print_str(char *str);
+int _putchar(char c);
+
+
+
+
+#endif
+>>>>>>> 47e0b1fb35d3f51ea256578f83173889afcfcb6b
