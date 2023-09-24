@@ -1,7 +1,10 @@
 #ifndef MAIN_H
-#define MAIN_H
-<<<<<<< HEAD
+#define  MAIN_H
+
+int _printf(const char *format, ...);
+
 #include <unistd.h>
+#include <stdarg.h>
 
 /**
  * _putchar - writes the character c to stdout
@@ -16,36 +19,21 @@ int _putchar(char c)
 }
 
 /**
- * _strlen - calculates the length of a string
- * @str: a pointer to a string
- * Retturn: the length
+ * printstr - prints a string
+ * @s: a pointer to a string to be printed
+ * Return: a pointer to the length of a string printed
  */
-int _strlen(const char *str)
+int printstr(const char *s)
 {
-	int length = 0;
-
-	for(i = 0; str[i] != '\0'; i++)
-	{
-		length++;
-	}
-	return (length);
-}
-/**
- * printstring - prints a string
- * @str: pointer to string
- * Return: void
- */
-int printstr(char *str)
-{
-	char *str;
-	str = "(null)";
 	int i;
-	int b;
+	char *str;
+
+	str = "(null)";
 	if (s == NULL)
 	{
-		for (b = 0; str[b] != '\0'; i++)
+		for (i = 0; str[i] != '\0'; i++)
 		{
-			_putchar(str[b]);
+			_putchar(str[i]);
 		}
 	}
 	else
@@ -58,19 +46,34 @@ int printstr(char *str)
 	return (i);
 }
 
-int _print(const char *format, ...);
+int check_identifier(const char *format, int *i, va_list lists)
+{
+	int size = 0;
+	char *str;
+
+	switch (format[*i + 1])
+	{
+		case 'c':
+			_putchar(va_arg(lists, int));
+			size++;
+			(*i)++;
+			break;
+		case 's':
+			str = va_arg(lists, char *);
+			size += printstr(str);
+			(*i)++;
+			break;
+		case '%':
+			_putchar('%');
+			size++;
+			(*i)++;
+			break;
+		default:
+			_putchar(format[*i]);
+			size++;
+			break;
+	}
+	return (size);
+}
 
 #endif /* MAIN_H */
-
-=======
-
-int print_int(int n);
-int _printf(const char *format, ...);
-int print_str(char *str);
-int _putchar(char c);
-
-
-
-
-#endif
->>>>>>> 47e0b1fb35d3f51ea256578f83173889afcfcb6b
